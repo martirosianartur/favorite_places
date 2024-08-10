@@ -6,7 +6,9 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
   const AddPlaceScreen({super.key});
 
   @override
-  ConsumerState<AddPlaceScreen> createState() => _AddPlaceScreenState();
+  ConsumerState<AddPlaceScreen> createState() {
+    return _AddPlaceScreenState();
+  }
 }
 
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
@@ -43,16 +45,16 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             TextField(
               decoration: const InputDecoration(labelText: 'Title'),
               controller: _titleController,
-              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: _savePlace,
               icon: const Icon(Icons.add),
               label: const Text('Add Place'),
-            )
+            ),
           ],
         ),
       ),

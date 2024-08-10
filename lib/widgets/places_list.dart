@@ -1,4 +1,5 @@
 import 'package:favorite_places/models/place.dart';
+import 'package:favorite_places/screens/place_detail.dart';
 import 'package:flutter/material.dart';
 
 class PlacesList extends StatelessWidget {
@@ -18,6 +19,7 @@ class PlacesList extends StatelessWidget {
         ),
       );
     }
+
     return ListView.builder(
       itemCount: places.length,
       itemBuilder: (ctx, index) => ListTile(
@@ -27,6 +29,13 @@ class PlacesList extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
         ),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (ctx) => PlaceDetailScreen(place: places[index]),
+            ),
+          );
+        },
       ),
     );
   }

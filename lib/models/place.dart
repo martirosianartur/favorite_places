@@ -8,4 +8,3 @@ class Place {
 
   Place({required this.title}) : id = uuid.v4();
 }
-// CREATE GIT REPO FOR THIS PROJECT!!!!!!

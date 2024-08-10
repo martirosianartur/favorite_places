@@ -10,11 +10,13 @@ class PlacesScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userPlaces = ref.watch(userPlacesProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ypur Places'),
+        title: const Text('Your Places'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -22,11 +24,12 @@ class PlacesScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.add),
           ),
         ],
       ),
-      body: PlacesList(places: userPlaces),
+      body: PlacesList(
+        places: userPlaces,
+      ),
     );
   }
 }

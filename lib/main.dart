@@ -11,7 +11,8 @@ final colorScheme = ColorScheme.fromSeed(
 );
 
 final theme = ThemeData().copyWith(
-  scaffoldBackgroundColor: colorScheme.onSurface,
+  // useMaterial3: true,
+  scaffoldBackgroundColor: colorScheme.surface,
   colorScheme: colorScheme,
   textTheme: GoogleFonts.ubuntuCondensedTextTheme().copyWith(
     titleSmall: GoogleFonts.ubuntuCondensed(
@@ -33,14 +34,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Great Places',
       theme: theme,
-      home: PlacesScreen(),
+      home: const PlacesScreen(),
     );
   }
 }
