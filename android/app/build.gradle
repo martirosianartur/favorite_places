@@ -1,3 +1,4 @@
+
 plugins {
     id "com.android.application"
     id "kotlin-android"
@@ -34,11 +35,19 @@ android {
     }
 
     defaultConfig {
+
+        def envFile = file("../../.env")
+        if (envFile.canRead()) {
+            def Properties props = new Properties()
+            props.load(new FileInputStream(envFile))
+            manifestPlaceholders = [google_maps_key: props['GOOGLE_MAPS_API_KEY']]
+        }        
+
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.favorite_places"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = 20
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
