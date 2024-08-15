@@ -32,17 +32,21 @@ class _MapScreenState extends State<MapScreen> {
         actions: [
           if (widget.isSelectiong)
             IconButton(
-              onPressed: () {},
               icon: const Icon(Icons.save),
+              onPressed: () {
+                Navigator.of(context).pop(_pickedLocation);
+              },
             )
         ],
       ),
       body: GoogleMap(
-        onTap: (position) {
-          setState(() {
-            _pickedLocation = position;
-          });
-        },
+        onTap: !widget.isSelectiong
+            ? null
+            : (position) {
+                setState(() {
+                  _pickedLocation = position;
+                });
+              },
         initialCameraPosition: CameraPosition(
           target: LatLng(
             widget.location.latitude,
